@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-import user from "../../img/user.jpeg";
 import 'react-pro-sidebar/dist/css/styles.css';
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -18,7 +17,6 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
-import { Dashboard } from "@mui/icons-material";
 
 
 
@@ -26,15 +24,17 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     return (
-    <MenuItem 
-        active={selected === title} 
-        style={{ color: colors.grey[100] }} 
-        onClick={() => setSelected(title)}
-        icon={icon}
-    >
-        <Typography>{title}</Typography>
-        <Link to={to} />
-    </MenuItem>
+        <MenuItem 
+            active={selected === title} 
+            style={{ 
+                color: colors.grey[100],
+            }} 
+            onClick={() => setSelected(title)}
+            icon={icon}
+        >
+            <Typography>{title}</Typography>
+            <Link to={to} />
+        </MenuItem>
     );
 
 };
@@ -98,15 +98,16 @@ const Sidebar = () => {
                     {/* USER SECTION */}
                     {!isCollapsed && (
                        <Box mb="25px">
-                            <Box display="flex" 
-                            justifyContent="center" 
-                            alignItems="center">
+                            <Box 
+                                display="flex" 
+                                justifyContent="center" 
+                                alignItems="center">
                                 <img 
-                                    alt="user"
+                                    alt="profile-user"
                                     width="100px"
                                     height="100px"
-                                    src={`../../img/user.jpeg`}
-                                    style={{ cursor: "pionter", borderRadius: "80%" }}
+                                    src={`../../assets/user.jpeg`}
+                                    style={{ cursor: "pionter", borderRadius: "50%" }}
                                 />
                             </Box>
                     
@@ -167,7 +168,7 @@ const Sidebar = () => {
                             setSelected={setSelected}
                         />
 
-                        
+
                         <Typography
                             variant="h6"
                             color={colors.grey[300]}
